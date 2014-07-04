@@ -96,9 +96,9 @@ def perform_analysis_and_visualization(data_store):
 
     if True: # PLOTTING
         #TrialCrossCorrelationAnalysis(data_store,ParameterSet({'neurons' : list(analog_ids)}),fig_param={"dpi" : 100,"figsize": (25,12)},plot_file_name="trial-to-trial-cross-correlation.png").plot()
-        SNRAnalysis(data_store,ParameterSet({"neuron" : analog_ids[0]}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name='SNR1.png').plot()                        
-        SNRAnalysis(data_store,ParameterSet({"neuron" : analog_ids[1]}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name='SNR2.png').plot()                        
-        SNRAnalysis(data_store,ParameterSet({"neuron" : analog_ids[2]}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name='SNR3.png').plot()                        
+        # SNRAnalysis(data_store,ParameterSet({"neuron" : analog_ids[0]}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name='SNR1.png').plot()                        
+        # SNRAnalysis(data_store,ParameterSet({"neuron" : analog_ids[1]}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name='SNR2.png').plot()                        
+        # SNRAnalysis(data_store,ParameterSet({"neuron" : analog_ids[2]}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name='SNR3.png').plot()                        
 
         dsv = param_filter_query(data_store,st_name=['InternalStimulus'])        
         OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (28,12)},plot_file_name='SSExcAnalog.png').plot()
@@ -131,15 +131,15 @@ def perform_analysis_and_visualization(data_store):
         #StimulusResponseComparison(data_store,ParameterSet({'neuron' : analog_ids[2],'sheet_name' : 'V1_Exc_L4'}),fig_param={'dpi' : 100,'figsize': (10,12)},plot_file_name='StimulusResponseComparison3.png').plot()
         #StimulusResponseComparison(data_store,ParameterSet({'neuron' : analog_ids[3],'sheet_name' : 'V1_Exc_L4'}),fig_param={'dpi' : 100,'figsize': (10,12)},plot_file_name='StimulusResponseComparison4.png').plot()
             
-        TrialToTrialVariabilityComparison(data_store,ParameterSet({}),plot_file_name='TtTVar.png').plot()
+#        TrialToTrialVariabilityComparison(data_store,ParameterSet({}),plot_file_name='TtTVar.png').plot()
         
-#        ConductanceAndVmTuningSummary(data_store,ParameterSet({'many' : True}),fig_param={'dpi' : 100,'figsize': (25,16)},plot_file_name='Cond&VMTuning.png').plot()
+#        #ConductanceAndVmTuningSummary(data_store,ParameterSet({'many' : True}),fig_param={'dpi' : 100,'figsize': (25,16)},plot_file_name='Cond&VMTuning.png').plot()
         
         dsv = param_filter_query(data_store,st_name='NaturalImageWithEyeMovement')            
         KremkowOverviewFigure(dsv,ParameterSet({'neuron' : l4_exc,'sheet_name' : 'V1_Exc_L4'}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name='NMOverview.png').plot()
         
-#        StimulusResponseComparison(data_store,ParameterSet({'neuron' : l4_exc,'sheet_name' : 'V1_Exc_L4'}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name='StimulusResponseComparison.png').plot()
-#        OrientationTuningSummary(data_store,ParameterSet({}),fig_param={'dpi' : 100,'figsize': (20,12)},plot_file_name='OrientationTuningSummary.png').plot()
+#        #StimulusResponseComparison(data_store,ParameterSet({'neuron' : l4_exc,'sheet_name' : 'V1_Exc_L4'}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name='StimulusResponseComparison.png').plot()
+#        #OrientationTuningSummary(data_store,ParameterSet({}),fig_param={'dpi' : 100,'figsize': (20,12)},plot_file_name='OrientationTuningSummary.png').plot()
             
 
         if True:
