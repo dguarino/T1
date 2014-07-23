@@ -5,24 +5,117 @@ from mozaik.sheets.population_selector import RCRandomPercentage
 from parameters import ParameterSet
     
 def create_experiments(model):
-    return              [
-                           #Spontaneous Activity 
-                           NoStimulation(model,duration=6*147*7),
+  return [
 
-                           #GRATINGS
-                           #MeasureOrientationTuningFullfield(model,num_orientations=2,spatial_frequency=0.8,temporal_frequency=2,grating_duration=147*7,contrasts=[5,10,20,30,40,50,60,70,80,90,100],num_trials=5),
-                           #MeasureOrientationTuningFullfield(model,num_orientations=10,spatial_frequency=0.8,temporal_frequency=2,grating_duration=147*7,contrasts=[100],num_trials=15),
-                           #MeasureOrientationTuningFullfield(model,num_orientations=10,spatial_frequency=0.8,temporal_frequency=2,grating_duration=147*7*2,contrasts=[50,100],num_trials=10),
-                           MeasureOrientationTuningFullfield(model,num_orientations=2,spatial_frequency=0.8,temporal_frequency=2,grating_duration=147*7,contrasts=[100],num_trials=5),
-                       
-                           #MeasureFrequencySensitivity(model,orientation=0,spatial_frequencies=[0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.1,1.2,1.3,1.4,1.5],temporal_frequencies=[2.0],grating_duration=147*7*2,contrasts=[100],num_trials=1),
-                           
-                           #MeasureFrequencySensitivity(model,orientation=0,spatial_frequencies=[0.01,0.8,1.5],temporal_frequencies=[2.0],grating_duration=147*7*2,contrasts=[100],num_trials=1),                           
-                           
-                           #IMAGES WITH EYEMOVEMENT
-                           MeasureNaturalImagesWithEyeMovement(model,stimulus_duration=3*147*7,num_trials=5),
+      # SPONTANEOUS ACTIVITY (darkness)
+      # as in LevickWilliams1964, WebbTinsleyBarracloughEastonParkerDerrington2002, (TODO: TsumotoCreutzfeldtLegendy1978)
+      NoStimulation( model, duration=147*7),
 
-                           #GRATINGS WITH EYEMOVEMENT
-                           #MeasureDriftingSineGratingWithEyeMovement(model,spatial_frequency=0.8,temporal_frequency=2,stimulus_duration=147*7,num_trials=10,contrast=100),
-                        ]
+      # LUMINANCE SENSITIVITY
+      # as in PapaioannouWhite1972
+      # MeasureFlatLuminanceSensitivity(
+      #     model, 
+      #     luminances=[0.01, 0.1, 1.0, 10.0, 20.0, 100.0],
+      #     step_duration=147*7,
+      #     num_trials=14
+      # ),
+
+      # CONTRAST SENSITIVITY
+      # as in DerringtonLennie1984, HeggelundKarlsenFlugsrudNordtug1989, SaulHumphrey1990, BoninManteCarandini2005
+      # MeasureContrastSensitivity(
+      #     model, 
+      #     size=2.0,
+      #     orientation=numpy.pi/2, 
+      #     spatial_frequency=0.15, 
+      #     temporal_frequency=8.0,
+      #     grating_duration=147*7,
+      #     contrasts=[0,10,25,40,75,100],
+      #     num_trials=14
+      # ),
+
+      # SPATIAL AND TEMPORAL FREQUENCY TUNING (with different contrasts)
+      # Spatial: as in SolomonWhiteMartin2002, SceniakChatterjeeCallaway2006
+      # Temporal: as in SaulHumphrey1990, AlittoUsrey2004
+      # MeasureFrequencySensitivity(
+      #     model, 
+      #     orientation=numpy.pi/2, 
+      #     contrasts=[20,50,100], #[50], #
+      #     spatial_frequencies=[0.001, 0.01, 0.05, 0.1, 0.16, 0.24, 0.64, 0.8, 1.0, 1.8], #[0.15], #[0.1, 0.16, 0.24], #
+      #     temporal_frequencies=[8.0], #[0.12, 0.5, 1.0, 2.0, 4.0, 6.0, 8.0, 16.0, 32.0, 50.0], #[6.0], #
+      #     grating_duration=147*7 *2,
+      #     frame_duration=7,
+      #     num_trials=5
+      # ),
+
+      # SIZE TUNING
+      # as in ClelandLeeVidyasagar1983, BoninManteCarandini2005
+      # MeasureSizeTuning(
+      #     model, 
+      #     num_sizes=11, 
+      #     max_size=16.0, 
+      #     orientation=numpy.pi/2, 
+      #     spatial_frequency=0.15, 
+      #     temporal_frequency=8.0,
+      #     grating_duration=147*7,
+      #     contrasts=[50,100], #40,100  to look for contrast-dependent RF expansion
+      #     num_trials=10,
+      #     log_spacing=True,
+      #     with_flat=True #use also flat luminance discs
+      # ),
+      
+      # LIFELONG SPARSENESS
+      # as in RathbunWarlandUsrey2010, AndolinaJonesWangSillito2007
+      # stimulation as Size Tuning
+      
+      # ORIENTATION TUNING (GRATINGS)
+      # as in DanielsNormanPettigrew1977, VidyasagarUrbas1982
+      #MeasureOrientationTuningFullfield(model,num_orientations=2,spatial_frequency=0.8,temporal_frequency=2,grating_duration=147*7,contrasts=[5,10,20,30,40,50,60,70,80,90,100],num_trials=5),
+      #MeasureOrientationTuningFullfield(model,num_orientations=10,spatial_frequency=0.8,temporal_frequency=2,grating_duration=147*7,contrasts=[100],num_trials=15),
+      #MeasureOrientationTuningFullfield(model,num_orientations=10,spatial_frequency=0.8,temporal_frequency=2,grating_duration=147*7*2,contrasts=[50,100],num_trials=10),
+      #MeasureOrientationTuningFullfield(model,num_orientations=2,spatial_frequency=0.8,temporal_frequency=2,grating_duration=147*7,contrasts=[100],num_trials=5),
+      MeasureOrientationTuningFullfield(
+          model,
+          num_orientations=2, #8,
+          spatial_frequency=0.5,
+          temporal_frequency=2.0, #6.0,
+          grating_duration=147*7,
+          contrasts=[100],
+          num_trials=4
+      ),
+
+      # CONTOUR COMPLETION
+      # as in SillitoJonesGersteinWest1994, SillitoCudeiroMurphy1993
+      # By default, for this experiment only, the visual space ('size' parameter in the SpatioTemporalFilterRetinaLGN_default file)
+      # is reduced to a flat line in order to have an horizontal distribution of neurons.
+      # A separation distance is established and the experimental protocol finds the closest neurons to the distance specified.
+      # MeasureFeatureInducedCorrelation(
+      #     model, 
+      #     contrast=70, 
+      #     spatial_frequencies=[0.15],
+      #     separation=6,
+      #     temporal_frequency=6.0,
+      #     exp_duration=147*7,
+      #     frame_duration=7,
+      #     num_trials=10,
+      # ),
+
+      # ------------------------------------------
+      # IMAGES WITH EYEMOVEMENT
+      #MeasureNaturalImagesWithEyeMovement(
+      #  model,
+      #  stimulus_duration=147*7 *3,
+      #  num_trials=5
+      #),
+
+      # GRATINGS WITH EYEMOVEMENT
+      # MeasureDriftingSineGratingWithEyeMovement(
+      #   model, 
+      #   spatial_frequency=0.8,
+      #   temporal_frequency=2,
+      #   stimulus_duration=147*7,
+      #   num_trials=10,
+      #   contrast=100
+      # ),
+
+  ]
 

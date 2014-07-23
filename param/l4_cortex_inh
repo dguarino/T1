@@ -97,7 +97,7 @@
         'or_map_location' : './or_map',
         'phase_map' : False,
         'phase_map_location' : './phase_map',
-        'base_weight' : 0.002,
+        'base_weight' : 0.003,
         'num_samples' : 50,
         'short_term_plasticity': {
             'U': 1.0, 

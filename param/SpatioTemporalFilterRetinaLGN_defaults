@@ -1,10 +1,10 @@
 {
     'component': 'mozaik.models.vision.spatiotemporalfilter.SpatioTemporalFilterRetinaLGN',
     'params': {
-        'density': 100, # 100!!!!!!!!!!!!!!!!! neurons per degree squared 
+        'density': 100, # neurons per degree squared 
         'size'  : (6.0,6.0), # deg; the effective size of the modelled section of retina/lgn
         'linear_scaler': 1.0, # overall scaling
-        'mpi_reproducible_noise' : False, #True,
+        'mpi_reproducible_noise' : False,
         'cached' : False,
         'cache_path' : 'retinal_cache/',
         'recorders' :  url("param/lgn_rec"),
@@ -45,18 +45,18 @@
                 'c50': 0.12, # naka-rushton const
             },
         },
-        'gain': 2, # nA*cd/m²
+        'gain': 1.5, # nA*cd/m²
         'cell': {
             'model': 'IF_cond_exp',
             'params': {
                 'v_thresh': -40.0, # WorgotterKoch1991
                 'v_rest': -70.0, # WorgotterKoch1991
-                'v_reset': -70.0, # Kremkow2014: WorgotterKoch1991(-90), LesicaWengJinYehAlonsoStanley2006(-50)
+                'v_reset': -70.0, # Kremkow2014, WorgotterKoch1991(-90), LesicaWengJinYehAlonsoStanley2006(-50)
                 'tau_refrac': 2.0, # Kremkow2014
                 'tau_m': 10.0, # WorgotterKoch1991
                 'cm': 1.0, # WorgotterKoch1991 #0.29, Kremkow2014
-                'e_rev_E': 20.0, # WorgotterKoch1991
-                'e_rev_I': -81.0, # Traub_etal2005, not used at the moment
+                'e_rev_E': 20.0, # WorgotterKoch1991 #0.0, Kremkow2014
+                'e_rev_I': -81.0, # Traub_etal2005 #-75.0, Kremkow2014
                 'tau_syn_E': 1.0, # CastiHayotXiaoKaplan2008 #1.5, Kremkow2014
                 'tau_syn_I': 1.0, # CastiHayotXiaoKaplan2008 #10.0, Kremkow2014
             },
