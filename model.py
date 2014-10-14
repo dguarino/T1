@@ -25,17 +25,55 @@ class PushPullCCModel(Model):
         RetinaLGN = load_component(self.parameters.retina_lgn.component)
       
         # Build and instrument the network
-        self.visual_field = VisualRegion(location_x=self.parameters.visual_field.centre[0],location_y=self.parameters.visual_field.centre[1],size_x=self.parameters.visual_field.size[0],size_y=self.parameters.visual_field.size[1])
+        self.visual_field = VisualRegion(
+            location_x=self.parameters.visual_field.centre[0],
+            location_y=self.parameters.visual_field.centre[1],
+            size_x=self.parameters.visual_field.size[0],
+            size_y=self.parameters.visual_field.size[1]
+        )
         self.input_layer = RetinaLGN(self, self.parameters.retina_lgn.params)
         cortex_exc_l4 = CortexExcL4(self, self.parameters.l4_cortex_exc.params)
         cortex_inh_l4 = CortexInhL4(self, self.parameters.l4_cortex_inh.params)
 
-        # initialize projections
-        GaborConnector(self,self.input_layer.sheets['X_ON'],self.input_layer.sheets['X_OFF'],cortex_exc_l4,self.parameters.l4_cortex_exc.AfferentConnection,'V1AffConnection')
-        GaborConnector(self,self.input_layer.sheets['X_ON'],self.input_layer.sheets['X_OFF'],cortex_inh_l4,self.parameters.l4_cortex_inh.AfferentConnection,'V1AffInhConnection')
+        # PROJECTIONS
 
+        # THALAMO-CORTICAL
+        GaborConnector(
+            self,
+            self.input_layer.sheets['X_ON'],
+            self.input_layer.sheets['X_OFF'],
+            cortex_exc_l4,                                      # target
+            self.parameters.l4_cortex_exc.AfferentConnection,   # parameters
+            'V1AffConnection'                                  # name
+        )
+        GaborConnector(
+            self,
+            self.input_layer.sheets['X_ON'],
+            self.input_layer.sheets['X_OFF'],
+            cortex_inh_l4,
+            self.parameters.l4_cortex_inh.AfferentConnection,
+            'V1AffInhConnection'
+        )
+
+        # CORTICO-CORTICAL
         ModularSamplingProbabilisticConnector(self,'V1L4ExcL4ExcConnection',cortex_exc_l4,cortex_exc_l4,self.parameters.l4_cortex_exc.L4ExcL4ExcConnection).connect()
         ModularSamplingProbabilisticConnector(self,'V1L4ExcL4InhConnection',cortex_exc_l4,cortex_inh_l4,self.parameters.l4_cortex_exc.L4ExcL4InhConnection).connect()
         ModularSamplingProbabilisticConnector(self,'V1L4InhL4ExcConnection',cortex_inh_l4,cortex_exc_l4,self.parameters.l4_cortex_inh.L4InhL4ExcConnection).connect()
         ModularSamplingProbabilisticConnector(self,'V1L4InhL4InhConnection',cortex_inh_l4,cortex_inh_l4,self.parameters.l4_cortex_inh.L4InhL4InhConnection).connect()
 
+        # CORTICO-THALAMIC
+        ModularSamplingProbabilisticConnector(
+            self,
+            'V1Exc_LGN_ON_ExcConnection',
+            cortex_exc_l4,
+            self.input_layer.sheets['X_ON'],
+            self.parameters.l4_cortex_exc.EfferentConnection
+        ).connect()
+
+        ModularSamplingProbabilisticConnector(
+            self,
+            'V1Exc_LGN_OFF_ExcConnection',
+            cortex_exc_l4,
+            self.input_layer.sheets['X_OFF'],
+            self.parameters.l4_cortex_exc.EfferentConnection
+        ).connect()

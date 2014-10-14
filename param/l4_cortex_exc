@@ -50,6 +50,7 @@
             'tau_psc': 0.0,
             'tau_fac': 50.0,
         },        
+        'fan_in' : True,
         'weight_functions' : {  
             'f1' : {
                 'component' : 'mozaik.connectors.vision.V1PushPullArborization',
@@ -64,13 +65,14 @@
         'delay_functions' : {},
         'weight_expression' : 'f1',
         'delay_expression' : '2', 
-        'base_weight': 0.0015, #0.0015,
+        'base_weight': 0.0015,
 		'num_samples' : 72,
     },
 
     'L4ExcL4InhConnection': {
         'target_synapses' : 'excitatory',             
         'short_term_plasticity': None, 
+        'fan_in' : True,
         'weight_functions' : {  
             'f1' : {
                 'component' : 'mozaik.connectors.vision.V1PushPullArborization',
@@ -85,7 +87,7 @@
         'delay_functions' : {},
         'weight_expression' : 'f1',
         'delay_expression' : '2', 
-        'base_weight': 0.0015, #0.0015,
+        'base_weight': 0.0015,
 		'num_samples' : 72,
     },
 
@@ -98,10 +100,10 @@
         'delay': 2.0,    
         'topological' : False,
         'or_map' : False,
-        'or_map_location' : './or_map',
+        'or_map_location' : '',
         'phase_map' : False,
-        'phase_map_location' : './phase_map',
-        'base_weight' : 0.003,
+        'phase_map_location' : '',
+        'base_weight' : 0.002, # weights are in microsiemens
         'num_samples' : 50,
         'short_term_plasticity': {
             'U': 1.0, 
@@ -109,5 +111,23 @@
             'tau_psc': 0.0,
             'tau_fac': 21.0,
         },
+        'fan_in' : True,
+    },
+
+    'EfferentConnection': {
+        'target_synapses' : 'excitatory',               
+        'weight_functions' : {},
+        'delay_functions' : {},
+        'weight_expression' : '0.002',
+        'delay_expression' : '2.0',
+        'base_weight' : 0.002, # weights are in microsiemens
+        'num_samples' : 50,
+        'short_term_plasticity': {
+            'U': 1.0, 
+            'tau_rec': 30.0, 
+            'tau_psc': 0.0,
+            'tau_fac': 21.0,
+        },
+        'fan_in' : False,
     }
 }

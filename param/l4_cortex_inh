@@ -46,6 +46,7 @@
     'L4InhL4ExcConnection': {
         'target_synapses' : 'inhibitory',             
         'short_term_plasticity': None ,
+        'fan_in' : True,
         'weight_functions' : {  
             'f1' : {
                 'component' : 'mozaik.connectors.vision.V1PushPullArborization',
@@ -67,6 +68,7 @@
     'L4InhL4InhConnection': {
         'target_synapses' : 'inhibitory',             
         'short_term_plasticity': None, 
+        'fan_in' : True,
         'weight_functions' : {  
             'f1' : {
                 'component' : 'mozaik.connectors.vision.V1PushPullArborization',
@@ -105,5 +107,6 @@
             'tau_psc': 0.0,
             'tau_fac': 21.0,
         },
+        'fan_in' : True,
     }        
 }
