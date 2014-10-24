@@ -115,7 +115,7 @@
     },
 
     'EfferentConnection': {
-        'target_synapses' : 'excitatory',               
+        'target_synapses' : 'inhibitory',               
         'weight_functions' : {},
         'delay_functions' : {},
         'weight_expression' : '0.002',

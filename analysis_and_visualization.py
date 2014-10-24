@@ -46,6 +46,7 @@ def perform_analysis_and_visualization(data_store):
 
     # ---- ANALYSIS ----
     if True: 
+        print "\nAnalysis ..."
 
         ##-------------------------------------
         ## LUMINANCE SENSITIVITY
@@ -68,7 +69,7 @@ def perform_analysis_and_visualization(data_store):
         # TrialAveragedFiringRate( dsv1_V1e, ParameterSet({}) ).analyse()
         # dsv1_V1i = param_filter_query( data_store, st_name='FullfieldDriftingSinusoidalGrating', sheet_name='V1_Inh_L4' )  
         # TrialAveragedFiringRate( dsv1_V1i, ParameterSet({}) ).analyse()
-        ## X ON cell 
+        # X ON cell 
         # TrialAveragedSparseness( dsv10, ParameterSet({}) ).analyse() # on responses: Sparseness
         # Analog_MeanSTDAndFanoFactor( dsv10, ParameterSet({}) ).analyse() # on Vm: FanoFactor
 
@@ -147,7 +148,7 @@ def perform_analysis_and_visualization(data_store):
 
 
     if True: # ---- PLOTTING ----
-
+        print "\nPlotting ..."
         #----------------------
         # LUMINANCE SENSITIVITY  
         # firing rate against luminance levels              
@@ -310,6 +311,7 @@ def perform_analysis_and_visualization(data_store):
         # SPATIAL FREQUENCY TUNING
         # firing rate against spatial frequencies
         # dsv = param_filter_query( data_store, st_name='FullfieldDriftingSinusoidalGrating', analysis_algorithm=['TrialAveragedFiringRate'] )
+        # dsv.print_content(full_ADS=True)
         # PlotTuningCurve(
         #    dsv,
         #    ParameterSet({
@@ -324,8 +326,8 @@ def perform_analysis_and_visualization(data_store):
         #    fig_param={'dpi' : 50,'figsize': (30,8)}, 
         #    plot_file_name="SpatialFrequencyTuning_LGN_On.png"
         # ).plot({
-        #    '*.y_lim':(0,60), 
-        #    '*.x_scale':'log', '*.x_scale_base':2,
+        #    # '*.y_lim':(0,60), 
+        #    #'*.x_scale':'log', '*.x_scale_base':2,
         #    '*.fontsize':17
         # })
         # PlotTuningCurve(
@@ -342,8 +344,8 @@ def perform_analysis_and_visualization(data_store):
         #    fig_param={'dpi' : 50,'figsize': (30,8)}, 
         #    plot_file_name="SpatialFrequencyTuning_LGN_Off.png"
         # ).plot({
-        #    '*.y_lim':(0,60), 
-        #    '*.x_scale':'log', '*.x_scale_base':2,
+        #    # '*.y_lim':(0,60), 
+        #    #'*.x_scale':'log', '*.x_scale_base':2,
         #    '*.fontsize':17
         # })
         # PlotTuningCurve(
@@ -360,8 +362,8 @@ def perform_analysis_and_visualization(data_store):
         #    fig_param={'dpi' : 50,'figsize': (30,8)}, 
         #    plot_file_name="SpatialFrequencyTuning_V1e.png"
         # ).plot({
-        #    '*.y_lim':(0,60), 
-        #    '*.x_scale':'log', '*.x_scale_base':2,
+        #    #'*.y_lim':(0,60), 
+        #    #'*.x_scale':'log', '*.x_scale_base':2,
         #    '*.fontsize':17
         # })
         # PlotTuningCurve(
@@ -378,8 +380,8 @@ def perform_analysis_and_visualization(data_store):
         #    fig_param={'dpi' : 50,'figsize': (30,8)}, 
         #    plot_file_name="SpatialFrequencyTuning_V1i.png"
         # ).plot({
-        #    '*.y_lim':(0,60), 
-        #    '*.x_scale':'log', '*.x_scale_base':2,
+        #    # '*.y_lim':(0,60), 
+        #    #'*.x_scale':'log', '*.x_scale_base':2,
         #    '*.fontsize':17
         # })
 
@@ -496,7 +498,7 @@ def perform_analysis_and_visualization(data_store):
             plot_file_name="SizeTuning_Grating_l4_exc.png"
         ).plot({
             '*.y_lim':(0,100), 
-            '*.x_scale':'log', '*.x_scale_base':2,
+            # '*.x_scale':'log', '*.x_scale_base':2,
             '*.fontsize':17
         })
         dsv = param_filter_query( data_store, st_name='FlatDisk', analysis_algorithm=['TrialAveragedFiringRate'] )
@@ -564,131 +566,131 @@ def perform_analysis_and_visualization(data_store):
 
         #-------------------
         # ORIENTATION TUNING
-        dsv = param_filter_query( data_store, st_name='FullfieldDriftingSinusoidalGrating', analysis_algorithm=['TrialAveragedFiringRate'] )
-        PlotTuningCurve( 
-          dsv, 
-          ParameterSet({
-                'polar': False,
-                'pool': False,
-               'centered': False,
-               'mean': False,
-              'parameter_name':'orientation', 
-              'neurons':list(analog_Xon_ids), 
-              'sheet_name':'X_ON'
-          }), 
-          fig_param={'dpi' : 100,'figsize': (6,6)}, 
-          plot_file_name="OrientationTuning_LGN_On.png"
-        ).plot({
-          '*.y_lim' : (0,100),
-           '*.fontsize':17
-        })
-        PlotTuningCurve( 
-          dsv, 
-          ParameterSet({
-                'polar': False,
-                'pool': False,
-               'centered': False,
-               'mean': False,
-              'parameter_name':'orientation', 
-              'neurons':list(analog_Xoff_ids), 
-              'sheet_name':'X_OFF'
-          }), 
-          fig_param={'dpi' : 100,'figsize': (6,6)}, 
-          plot_file_name="OrientationTuning_LGN_Off.png"
-        ).plot({
-          '*.y_lim' : (0,100),
-           '*.fontsize':17
-        })
+        # dsv = param_filter_query( data_store, st_name='FullfieldDriftingSinusoidalGrating', analysis_algorithm=['TrialAveragedFiringRate'] )
+        # PlotTuningCurve( 
+        #   dsv, 
+        #   ParameterSet({
+        #         'polar': False,
+        #         'pool': False,
+        #        'centered': False,
+        #        'mean': False,
+        #       'parameter_name':'orientation', 
+        #       'neurons':list(analog_Xon_ids), 
+        #       'sheet_name':'X_ON'
+        #   }), 
+        #   fig_param={'dpi' : 100,'figsize': (6,6)}, 
+        #   plot_file_name="OrientationTuning_LGN_On.png"
+        # ).plot({
+        #   '*.y_lim' : (0,100),
+        #    '*.fontsize':17
+        # })
+        # PlotTuningCurve( 
+        #   dsv, 
+        #   ParameterSet({
+        #         'polar': False,
+        #         'pool': False,
+        #        'centered': False,
+        #        'mean': False,
+        #       'parameter_name':'orientation', 
+        #       'neurons':list(analog_Xoff_ids), 
+        #       'sheet_name':'X_OFF'
+        #   }), 
+        #   fig_param={'dpi' : 100,'figsize': (6,6)}, 
+        #   plot_file_name="OrientationTuning_LGN_Off.png"
+        # ).plot({
+        #   '*.y_lim' : (0,100),
+        #    '*.fontsize':17
+        # })
 
-        # V1        
-        dsv = param_filter_query(data_store,st_name=['InternalStimulus'])        
-        OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (28,12)},plot_file_name='SSExcAnalog.png').plot()
-        OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Inh_L4', 'neuron' : analog_ids_inh[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (28,12)},plot_file_name='SSInhAnalog.png').plot()    
+        # # V1        
+        # dsv = param_filter_query(data_store,st_name=['InternalStimulus'])        
+        # OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (28,12)},plot_file_name='SSExcAnalog.png').plot()
+        # OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Inh_L4', 'neuron' : analog_ids_inh[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (28,12)},plot_file_name='SSInhAnalog.png').plot()    
 
-        if False:            
-            TrialToTrialVariabilityComparison(data_store,ParameterSet({}),plot_file_name='TtTVar.png').plot()
+        # if False:            
+        #     TrialToTrialVariabilityComparison(data_store,ParameterSet({}),plot_file_name='TtTVar.png').plot()
 
-            dsv = param_filter_query(data_store,st_name='NaturalImageWithEyeMovement')            
-            KremkowOverviewFigure(dsv,ParameterSet({'neuron' : l4_exc,'sheet_name' : 'V1_Exc_L4'}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name='NMOverview.png').plot()            
+        #     dsv = param_filter_query(data_store,st_name='NaturalImageWithEyeMovement')            
+        #     KremkowOverviewFigure(dsv,ParameterSet({'neuron' : l4_exc,'sheet_name' : 'V1_Exc_L4'}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name='NMOverview.png').plot()            
 
-        if True:
-            dsv = param_filter_query(data_store,st_name='FullfieldDriftingSinusoidalGrating',st_contrast=100)    
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : l4_exc, 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc2.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc3.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[1], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc4.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[2], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc5.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[3], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc6.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[4], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc7.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[5], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc8.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[6], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc9.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[7], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc10.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        # if True:
+        #     dsv = param_filter_query(data_store,st_name='FullfieldDriftingSinusoidalGrating',st_contrast=100)    
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : l4_exc, 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc2.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc3.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[1], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc4.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[2], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc5.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[3], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc6.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[4], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc7.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[5], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc8.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[6], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc9.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Exc_L4', 'neuron' : analog_ids[7], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (19,12)},plot_file_name="Exc10.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
 
             
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Inh_L4', 'neuron' : l4_inh, 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="Inh.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'X_ON', 'neuron' : sorted(param_filter_query(data_store,sheet_name="X_ON").get_segments()[0].get_stored_esyn_ids())[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="LGN0On.png").plot()
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'X_OFF', 'neuron' : sorted(param_filter_query(data_store,sheet_name="X_OFF").get_segments()[0].get_stored_esyn_ids())[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="LGN0Off.png").plot()
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'X_ON', 'neuron' : sorted(param_filter_query(data_store,sheet_name="X_ON").get_segments()[0].get_stored_esyn_ids())[1], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="LGN1On.png").plot()
-            OverviewPlot(dsv,ParameterSet({'sheet_name' : 'X_OFF', 'neuron' : sorted(param_filter_query(data_store,sheet_name="X_OFF").get_segments()[0].get_stored_esyn_ids())[1], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="LGN1Off.png").plot()
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'V1_Inh_L4', 'neuron' : l4_inh, 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="Inh.png").plot({'Vm_plot.y_lim' : (-67,-56),'Conductance_plot.y_lim' : (0,35.0)})
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'X_ON', 'neuron' : sorted(param_filter_query(data_store,sheet_name="X_ON").get_segments()[0].get_stored_esyn_ids())[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="LGN0On.png").plot()
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'X_OFF', 'neuron' : sorted(param_filter_query(data_store,sheet_name="X_OFF").get_segments()[0].get_stored_esyn_ids())[0], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="LGN0Off.png").plot()
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'X_ON', 'neuron' : sorted(param_filter_query(data_store,sheet_name="X_ON").get_segments()[0].get_stored_esyn_ids())[1], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="LGN1On.png").plot()
+        #     OverviewPlot(dsv,ParameterSet({'sheet_name' : 'X_OFF', 'neuron' : sorted(param_filter_query(data_store,sheet_name="X_OFF").get_segments()[0].get_stored_esyn_ids())[1], 'sheet_activity' : {}}),fig_param={'dpi' : 100,'figsize': (14,12)},plot_file_name="LGN1Off.png").plot()
         
-        # tuning curves
-        dsv = param_filter_query(data_store,st_name='FullfieldDriftingSinusoidalGrating',analysis_algorithm=['TrialAveragedFiringRate','Analog_F0andF1'])    
-        PlotTuningCurve(dsv,ParameterSet({'parameter_name' : 'orientation', 'neurons': list(analog_ids), 'sheet_name' : 'V1_Exc_L4','centered'  : True,'mean' : False,'polar' : False, 'pool' : False}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name="TCExc.png").plot({'TuningCurve F0_Inh_Cond.y_lim' : (0,180) , 'TuningCurve F0_Exc_Cond.y_lim' : (0,80)})
-        PlotTuningCurve(dsv,ParameterSet({'parameter_name' : 'orientation', 'neurons': list(analog_ids_inh), 'sheet_name' : 'V1_Inh_L4','centered'  : True,'mean' : False,'polar' : False, 'pool' : False}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name="TCInh.png").plot({'TuningCurve F0_Inh_Cond.y_lim' : (0,180) , 'TuningCurve F0_Exc_Cond.y_lim' : (0,80)})
+        # # tuning curves
+        # dsv = param_filter_query(data_store,st_name='FullfieldDriftingSinusoidalGrating',analysis_algorithm=['TrialAveragedFiringRate','Analog_F0andF1'])    
+        # PlotTuningCurve(dsv,ParameterSet({'parameter_name' : 'orientation', 'neurons': list(analog_ids), 'sheet_name' : 'V1_Exc_L4','centered'  : True,'mean' : False,'polar' : False, 'pool' : False}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name="TCExc.png").plot({'TuningCurve F0_Inh_Cond.y_lim' : (0,180) , 'TuningCurve F0_Exc_Cond.y_lim' : (0,80)})
+        # PlotTuningCurve(dsv,ParameterSet({'parameter_name' : 'orientation', 'neurons': list(analog_ids_inh), 'sheet_name' : 'V1_Inh_L4','centered'  : True,'mean' : False,'polar' : False, 'pool' : False}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name="TCInh.png").plot({'TuningCurve F0_Inh_Cond.y_lim' : (0,180) , 'TuningCurve F0_Exc_Cond.y_lim' : (0,80)})
         
-        dsv = param_filter_query(data_store,st_name='FullfieldDriftingSinusoidalGrating',analysis_algorithm=['Analog_MeanSTDAndFanoFactor'])    
-        PlotTuningCurve(dsv,ParameterSet({'parameter_name' : 'orientation', 'neurons': list(analog_ids), 'sheet_name' : 'V1_Exc_L4','centered'  : True,'mean' : False,'polar' : False, 'pool' : False}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name="TCExcA.png").plot()
-        PlotTuningCurve(dsv,ParameterSet({'parameter_name' : 'orientation', 'neurons': list(analog_ids_inh), 'sheet_name' : 'V1_Inh_L4','centered'  : True,'mean' : False,'polar' : False, 'pool' : False}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name="TCInhA.png").plot()
+        # dsv = param_filter_query(data_store,st_name='FullfieldDriftingSinusoidalGrating',analysis_algorithm=['Analog_MeanSTDAndFanoFactor'])    
+        # PlotTuningCurve(dsv,ParameterSet({'parameter_name' : 'orientation', 'neurons': list(analog_ids), 'sheet_name' : 'V1_Exc_L4','centered'  : True,'mean' : False,'polar' : False, 'pool' : False}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name="TCExcA.png").plot()
+        # PlotTuningCurve(dsv,ParameterSet({'parameter_name' : 'orientation', 'neurons': list(analog_ids_inh), 'sheet_name' : 'V1_Inh_L4','centered'  : True,'mean' : False,'polar' : False, 'pool' : False}),fig_param={'dpi' : 100,'figsize': (25,12)},plot_file_name="TCInhA.png").plot()
 
         #-----------
         ## CONTOUR COMPLETION
         # ## Square Grating
-        dsv = param_filter_query( data_store, st_name='FullfieldDriftingSquareGrating', analysis_algorithm=['TrialAveragedCorrectedCrossCorrelation'] )
-        PerNeuronPairAnalogSignalListPlot(
-            dsv,
-            ParameterSet({
-                'sheet_name' : 'X_ON', 
-            }),
-            fig_param={'dpi' : 100,'figsize': (14,14)}, 
-            plot_file_name='SquareGrating_XCorr_LGN_On.png'
-        ).plot({
-            '*.y_lim':(-30,30), 
-            '*.fontsize':17
-        })
-        PerNeuronPairAnalogSignalListPlot(
-            dsv,
-            ParameterSet({
-                'sheet_name' : 'V1_Exc_L4', 
-            }),
-            fig_param={'dpi' : 100,'figsize': (14,14)}, 
-            plot_file_name='SquareGrating_XCorr_V1e.png'
-        ).plot({
-            '*.y_lim':(-30,30), 
-            '*.fontsize':17
-        })
-        ## Flashing squares
-        dsv = param_filter_query( data_store, st_name='FlashingSquares', analysis_algorithm=['TrialAveragedCorrectedCrossCorrelation'] )
-        PerNeuronPairAnalogSignalListPlot(
-            dsv,
-            ParameterSet({
-                'sheet_name' : 'X_ON', 
-            }),
-            fig_param={'dpi' : 100,'figsize': (14,14)}, 
-            plot_file_name='FlashingSquare_XCorr_LGN_On.png'
-        ).plot({
-            '*.y_lim':(-30,30), 
-            '*.fontsize':17
-        })
-        PerNeuronPairAnalogSignalListPlot(
-            dsv,
-            ParameterSet({
-                'sheet_name' : 'V1_Exc_L4', 
-            }),
-            fig_param={'dpi' : 100,'figsize': (14,14)}, 
-            plot_file_name='FlashingSquare_XCorr_V1e.png'
-        ).plot({
-            '*.y_lim':(-30,30), 
-            '*.fontsize':17
-        })
+        # dsv = param_filter_query( data_store, st_name='FullfieldDriftingSquareGrating', analysis_algorithm=['TrialAveragedCorrectedCrossCorrelation'] )
+        # PerNeuronPairAnalogSignalListPlot(
+        #     dsv,
+        #     ParameterSet({
+        #         'sheet_name' : 'X_ON', 
+        #     }),
+        #     fig_param={'dpi' : 100,'figsize': (14,14)}, 
+        #     plot_file_name='SquareGrating_XCorr_LGN_On.png'
+        # ).plot({
+        #     '*.y_lim':(-30,30), 
+        #     '*.fontsize':17
+        # })
+        # PerNeuronPairAnalogSignalListPlot(
+        #     dsv,
+        #     ParameterSet({
+        #         'sheet_name' : 'V1_Exc_L4', 
+        #     }),
+        #     fig_param={'dpi' : 100,'figsize': (14,14)}, 
+        #     plot_file_name='SquareGrating_XCorr_V1e.png'
+        # ).plot({
+        #     '*.y_lim':(-30,30), 
+        #     '*.fontsize':17
+        # })
+        # ## Flashing squares
+        # dsv = param_filter_query( data_store, st_name='FlashingSquares', analysis_algorithm=['TrialAveragedCorrectedCrossCorrelation'] )
+        # PerNeuronPairAnalogSignalListPlot(
+        #     dsv,
+        #     ParameterSet({
+        #         'sheet_name' : 'X_ON', 
+        #     }),
+        #     fig_param={'dpi' : 100,'figsize': (14,14)}, 
+        #     plot_file_name='FlashingSquare_XCorr_LGN_On.png'
+        # ).plot({
+        #     '*.y_lim':(-30,30), 
+        #     '*.fontsize':17
+        # })
+        # PerNeuronPairAnalogSignalListPlot(
+        #     dsv,
+        #     ParameterSet({
+        #         'sheet_name' : 'V1_Exc_L4', 
+        #     }),
+        #     fig_param={'dpi' : 100,'figsize': (14,14)}, 
+        #     plot_file_name='FlashingSquare_XCorr_V1e.png'
+        # ).plot({
+        #     '*.y_lim':(-30,30), 
+        #     '*.fontsize':17
+        # })
 
 
         import pylab

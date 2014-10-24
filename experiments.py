@@ -40,8 +40,8 @@ def create_experiments(model):
       #     model, 
       #     orientation=numpy.pi/2, 
       #     contrasts=[100], #[50], #
-      #     spatial_frequencies=[0.25], #[0.01, 0.1, 0.16, 0.24, 0.64, 0.8, 1.0, 1.8], #[0.15],
-      #     temporal_frequencies=[0.12, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0], #[6.0],
+      #     spatial_frequencies=[0.01, 0.1, 0.16, 0.24, 0.64, 0.8, 1.0, 1.8], #[0.15], [0.01, 0.1, 0.24, 0.64, 0.8, 1.0, 1.8], #[0.25], #
+      #     temporal_frequencies=[6.0], #[0.12, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0], #[6.0],
       #     grating_duration=147*7,
       #     frame_duration=7,
       #     num_trials=14

@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-This is implementation of model of push-pull connectvity: 
-Jens Kremkow: Correlating Excitation and Inhibition in Visual Cortical Circuits: Functional Consequences and Biological Feasibility. PhD Thesis, 2009.
+This is implementation of a full recursive model of thalamo-cortical connectvity
 """
 import sys
 from pyNN import nest
 import mozaik
 from mozaik.controller import run_workflow, setup_logging
-from model import PushPullCCModel
+from model import ThalamoCorticalModel
 from experiments import create_experiments
 from mozaik.storage.datastore import Hdf5DataStore,PickledDataStore
 from analysis_and_visualization import perform_analysis_and_visualization
@@ -25,7 +24,7 @@ MPI_ROOT = 0
 logger = mozaik.getMozaikLogger()
 
 if True:
-    data_store,model = run_workflow('T1',PushPullCCModel,create_experiments)
+    data_store,model = run_workflow('T1',ThalamoCorticalModel,create_experiments)
     model.connectors['V1L4ExcL4ExcConnection'].store_connections(data_store)    
     model.connectors['V1L4ExcL4InhConnection'].store_connections(data_store)    
     model.connectors['V1L4InhL4ExcConnection'].store_connections(data_store)    
@@ -40,7 +39,7 @@ if True:
     
 else: 
     setup_logging()
-    data_store = PickledDataStore(load=True,parameters=ParameterSet({'root_directory':'Output_Data_____', 'store_stimuli' : False}),replace=True)
+    data_store = PickledDataStore(load=True,parameters=ParameterSet({'root_directory':'T1_data_____', 'store_stimuli' : False}),replace=True)
     logger.info('Loaded data store')
     data_store.save()
 
