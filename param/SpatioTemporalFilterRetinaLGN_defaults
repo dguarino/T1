@@ -45,13 +45,13 @@
                 'c50': 0.12, # naka-rushton const
             },
         },
-        'gain': 1.5, # nA*cd/m²
+        'gain': 60, #1.5, # nA*cd/m²
         'cell': {
             'model': 'IF_cond_exp',
             'params': {
                 'v_thresh': -40.0, # WorgotterKoch1991
                 'v_rest': -70.0, # WorgotterKoch1991
-                'v_reset': -70.0, # Kremkow2014, WorgotterKoch1991(-90), LesicaWengJinYehAlonsoStanley2006(-50)
+                'v_reset': -50.0, # Kremkow2014, WorgotterKoch1991(-90), LesicaWengJinYehAlonsoStanley2006(-50)
                 'tau_refrac': 2.0, # Kremkow2014
                 'tau_m': 10.0, # WorgotterKoch1991
                 'cm': 1.0, # WorgotterKoch1991 #0.29, Kremkow2014
@@ -66,7 +66,7 @@
         },
         'noise': {
             'mean': 0.0,
-            'stdev': 25.0, # nA
+            'stdev': 22.0, # nA
         }
     }
 }

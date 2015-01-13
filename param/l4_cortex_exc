@@ -114,13 +114,14 @@
         'fan_in' : True,
     },
 
+    # V1 to LGN
     'EfferentConnection': {
-        'target_synapses' : 'inhibitory',               
+        'target_synapses' : 'excitatory',               
         'weight_functions' : {},
         'delay_functions' : {},
-        'weight_expression' : '0.002',
+        'weight_expression' : '0.02',
         'delay_expression' : '2.0',
-        'base_weight' : 0.002, # weights are in microsiemens
+        'base_weight' : 0.02, # weights are in microsiemens
         'num_samples' : 50,
         'short_term_plasticity': {
             'U': 1.0, 

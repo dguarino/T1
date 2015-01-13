@@ -483,24 +483,24 @@ def perform_analysis_and_visualization(data_store):
             '*.x_scale':'log', '*.x_scale_base':2,
             '*.fontsize':17
         })
-        PlotTuningCurve(
-            dsv,
-            ParameterSet({
-                'polar': False,
-                'pool': False,
-                'centered': False,
-                'mean': False,
-                'parameter_name' : 'radius', 
-                'neurons': list(analog_ids), 
-                'sheet_name' : 'V1_Exc_L4'
-            }), 
-            fig_param={'dpi' : 100,'figsize': (30,8)}, 
-            plot_file_name="SizeTuning_Grating_l4_exc.png"
-        ).plot({
-            '*.y_lim':(0,100), 
-            # '*.x_scale':'log', '*.x_scale_base':2,
-            '*.fontsize':17
-        })
+        # PlotTuningCurve(
+        #     dsv,
+        #     ParameterSet({
+        #         'polar': False,
+        #         'pool': False,
+        #         'centered': False,
+        #         'mean': False,
+        #         'parameter_name' : 'radius', 
+        #         'neurons': list(analog_ids), 
+        #         'sheet_name' : 'V1_Exc_L4'
+        #     }), 
+        #     fig_param={'dpi' : 100,'figsize': (30,8)}, 
+        #     plot_file_name="SizeTuning_Grating_l4_exc.png"
+        # ).plot({
+        #     '*.y_lim':(0,100), 
+        #     # '*.x_scale':'log', '*.x_scale_base':2,
+        #     '*.fontsize':17
+        # })
         dsv = param_filter_query( data_store, st_name='FlatDisk', analysis_algorithm=['TrialAveragedFiringRate'] )
         PlotTuningCurve(
            dsv,
@@ -520,24 +520,24 @@ def perform_analysis_and_visualization(data_store):
            '*.x_scale':'log', '*.x_scale_base':2,
            '*.fontsize':17
         })
-        PlotTuningCurve(
-           dsv,
-           ParameterSet({
-                'polar': False,
-                'pool': False,
-                'centered': False,
-                'mean': False,
-                'parameter_name' : 'radius', 
-                'neurons': list(analog_ids), 
-                'sheet_name' : 'V1_Exc_L4'
-           }), 
-            fig_param={'dpi' : 100,'figsize': (30,8)}, 
-           plot_file_name="SizeTuning_Disk_l4_exc.png"
-        ).plot({
-           '*.y_lim':(0,100), 
-           '*.x_scale':'log', '*.x_scale_base':2,
-           '*.fontsize':17
-        })
+        # PlotTuningCurve(
+        #    dsv,
+        #    ParameterSet({
+        #         'polar': False,
+        #         'pool': False,
+        #         'centered': False,
+        #         'mean': False,
+        #         'parameter_name' : 'radius', 
+        #         'neurons': list(analog_ids), 
+        #         'sheet_name' : 'V1_Exc_L4'
+        #    }), 
+        #     fig_param={'dpi' : 100,'figsize': (30,8)}, 
+        #    plot_file_name="SizeTuning_Disk_l4_exc.png"
+        # ).plot({
+        #    '*.y_lim':(0,100), 
+        #    '*.x_scale':'log', '*.x_scale_base':2,
+        #    '*.fontsize':17
+        # })
 
         #--------------------
         # LIFELONG SPARSENESS

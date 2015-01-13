@@ -29,7 +29,7 @@ def create_experiments(model):
       #     spatial_frequency=0.15, 
       #     temporal_frequency=8.0,
       #     grating_duration=147*7,
-      #     contrasts=[0,10,25,40,75,100],
+      #     contrasts=[0,25,50,100],
       #     num_trials=14
       # ),
 
@@ -51,14 +51,14 @@ def create_experiments(model):
       # as in ClelandLeeVidyasagar1983, BoninManteCarandini2005
       MeasureSizeTuning(
           model, 
-          num_sizes=5, 
+          num_sizes=7, 
           max_size=16.0, 
           orientation=numpy.pi/2, 
-          spatial_frequency=0.5, #0.15, 
-          temporal_frequency=4.0, #8.0,
+          spatial_frequency=0.15, #0.15, 
+          temporal_frequency=8.0, #8.0,
           grating_duration=147*7,
           contrasts=[100], #40,100  to look for contrast-dependent RF expansion
-          num_trials=5,
+          num_trials=10,
           log_spacing=True,
           with_flat=True #use also flat luminance discs
       ),

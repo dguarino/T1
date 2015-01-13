@@ -91,7 +91,7 @@ class ThalamoCorticalModel(Model):
         ).connect()
 
 
-        # # CORTICO-THALAMIC
+        # CORTICO-THALAMIC
         ModularSamplingProbabilisticConnector(
             self,
             'V1Exc_LGN_ON_ExcConnection',
