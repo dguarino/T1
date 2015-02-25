@@ -39,12 +39,12 @@ def create_experiments(model):
       # MeasureFrequencySensitivity(
       #     model, 
       #     orientation=numpy.pi/2, 
-      #     contrasts=[100], #[50], #
-      #     spatial_frequencies=[0.01, 0.1, 0.16, 0.24, 0.64, 0.8, 1.0, 1.8], #[0.15], [0.01, 0.1, 0.24, 0.64, 0.8, 1.0, 1.8], #[0.25], #
-      #     temporal_frequencies=[6.0], #[0.12, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0], #[6.0],
+      #     contrasts=[100], #[25,50,100], #
+      #     spatial_frequencies=[0.2], #[0.02, 0.08, 0.16, 0.24, 0.64, 1.28], #[0.2], #
+      #     temporal_frequencies=[0.6, 1.2, 2.5, 5.1, 6.4, 8.0, 16.0], #[8.0], #
       #     grating_duration=147*7,
       #     frame_duration=7,
-      #     num_trials=14
+      #     num_trials=15
       # ),
 
       # SIZE TUNING
@@ -71,11 +71,11 @@ def create_experiments(model):
       # as in DanielsNormanPettigrew1977, VidyasagarUrbas1982
       # MeasureOrientationTuningFullfield(
       #     model,
-      #     num_orientations=2, #8,
-      #     spatial_frequency=0.3,
-      #     temporal_frequency=3.0, #6.0,
+      #     num_orientations=8,
+      #     spatial_frequency=0.15,
+      #     temporal_frequency=8.0, # <<<<<<<<<<<<<<<<<<<<
       #     grating_duration=147*7,
-      #     contrasts=[20,50,100],
+      #     contrasts=[50,100],
       #     num_trials=14
       # ),
 
@@ -87,12 +87,12 @@ def create_experiments(model):
       # MeasureFeatureInducedCorrelation(
       #     model, 
       #     contrast=70, 
-      #     spatial_frequencies=[0.25],
+      #     spatial_frequencies=[0.15],
       #     separation=6,
-      #     temporal_frequency=2.0,
+      #     temporal_frequency=8.0,
       #     exp_duration=147*7,
       #     frame_duration=7,
-      #     num_trials=10,
+      #     num_trials=20,
       # ),
 
       # ------------------------------------------

@@ -23,7 +23,7 @@ MPI_ROOT = 0
 
 logger = mozaik.getMozaikLogger()
 
-if True:
+if False:
     data_store,model = run_workflow('T1',ThalamoCorticalModel,create_experiments)
     model.connectors['V1L4ExcL4ExcConnection'].store_connections(data_store)    
     model.connectors['V1L4ExcL4InhConnection'].store_connections(data_store)    
@@ -33,8 +33,8 @@ if True:
     model.connectors['V1AffConnectionOff'].store_connections(data_store)    
     model.connectors['V1AffInhConnectionOn'].store_connections(data_store)    
     model.connectors['V1AffInhConnectionOff'].store_connections(data_store)    
-    model.connectors['V1Exc_LGN_ON_ExcConnection'].store_connections(data_store)    
-    model.connectors['V1Exc_LGN_OFF_ExcConnection'].store_connections(data_store)    
+    model.connectors['V1EffConnectionOn'].store_connections(data_store)    
+    model.connectors['V1EffConnectionOff'].store_connections(data_store)    
     data_store.save()
     
 else: 

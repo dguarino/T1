@@ -94,7 +94,7 @@ class ThalamoCorticalModel(Model):
         # CORTICO-THALAMIC
         ModularSamplingProbabilisticConnector(
             self,
-            'V1Exc_LGN_ON_ExcConnection',
+            'V1EffConnectionOn',
             cortex_exc_l4,
             self.input_layer.sheets['X_ON'],
             self.parameters.l4_cortex_exc.EfferentConnection
@@ -102,7 +102,7 @@ class ThalamoCorticalModel(Model):
 
         ModularSamplingProbabilisticConnector(
             self,
-            'V1Exc_LGN_OFF_ExcConnection',
+            'V1EffConnectionOff',
             cortex_exc_l4,
             self.input_layer.sheets['X_OFF'],
             self.parameters.l4_cortex_exc.EfferentConnection
